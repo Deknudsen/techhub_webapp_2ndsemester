@@ -79,6 +79,11 @@ const routes = [
     component: () => import('../views/AdminCreateEventsView.vue')
   },
   {
+    path: '/admin/editevents/:id',
+    name: 'createEvents',
+    component: () => import('../views/AdminEditEventView.vue')
+  },
+  {
     path: '/admin/createtestimonials',
     name: 'createTestimonials',
     component: () => import('../views/AdminCreateTestimonialsView.vue')

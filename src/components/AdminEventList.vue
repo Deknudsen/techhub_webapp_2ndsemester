@@ -19,7 +19,7 @@
           <td>
             <!-- manually type action buttons -->
             <!-- :to will redirect the user to the edit URL with the id set to the event we are iterating -->
-            <router-link :to="`/edit/${id}`">
+            <router-link :to="`/editevents/${id}`">
               <button class="btn btn-primary btn-sm me-2">
                 Edit
               </button>
