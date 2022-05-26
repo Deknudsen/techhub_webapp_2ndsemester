@@ -3,7 +3,7 @@
         <p>Hej</p>
         <form @submit.prevent="onSubmit">    
             <div>
-                <label>Name</label>
+                <label>Title</label>
                 <input 
                     type="text" 
                     v-model="form.title"
@@ -12,7 +12,7 @@
             </div>
 
             <div>
-                <label>Task</label>
+                <label>Date</label>
                 <input 
                     type="text"
                     v-model="form.date"
@@ -21,7 +21,7 @@
             </div>
 
             <div>
-                <label>Task</label>
+                <label>Description</label>
                 <input 
                     type="text"
                     v-model="form.description"
@@ -30,7 +30,7 @@
             </div>
             
             <div>
-                <label>Task</label>
+                <label>Place</label>
                 <input 
                     type="text"
                     v-model="form.place"
@@ -46,6 +46,11 @@
 </template>
 
 <script>
+// Stuff for Login (Auth)
+import firebase from 'firebase'
+import { ref, onBeforeMount } from 'vue'
+import { /*useRoute,*/ useRouter } from 'vue-router'
+
 import { reactive } from 'vue'
 import { createEvent } from '@/firebase.js'
 
@@ -66,8 +71,32 @@ import { createEvent } from '@/firebase.js'
                 form.description = '',
                 form.place = ''
             }
+            const router = useRouter()
+            //const route = useRoute()
 
-            return { form, onSubmit }
+            const name = ref("")
+    
+            onBeforeMount(() => {
+                const user = firebase.auth().currentUser // checking for the user info and store it in 'user'
+                //console.log("testUser: ", user.email)
+                if (user) {
+                    name.value = user.email.split('@')[0] // check for @ and split it there. so stuff before the @ sign.
+                }
+                else {
+                    router.push('/login') 
+                }
+            });
+    
+            const logout = () => {
+                firebase.auth().signOut().then(() => {
+                    // Sign-out successful.
+                }).catch((error) => {
+                console.log("err", error.message)
+                    // An error happened.
+                });
+            }
+
+            return { form, onSubmit, name, logout }
         }
     }
 </script>

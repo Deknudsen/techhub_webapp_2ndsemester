@@ -1,8 +1,12 @@
 <template>
     <div>
-        <p>
-            Jeg virker
-        </p>
+        <h1>This is an admin page</h1>
+        <h1>Welcome {{ name }}</h1>
+        <button  @click="logout">  <!-- v-if="user"  -->
+        Logout
+        </button>
+        
+        <EventList />
     </div>
 </template>
 
@@ -13,7 +17,14 @@ import firebase from 'firebase'
 import { ref, onBeforeMount } from 'vue'
 import { /*useRoute,*/ useRouter } from 'vue-router'
 
+import EventList from '@/components/AdminEventList.vue'
+
     export default {
+      components: {
+ 
+    EventList
+
+  },
         setup() {
     const router = useRouter()
     //const route = useRoute()

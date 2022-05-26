@@ -5,8 +5,8 @@ import Home from '../views/HomeView.vue'
 import Edit from '../views/Edit.vue'
 
 // For login stuff
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
+import Login from '../views/LoginView.vue'
+import Register from '../views/RegisterView.vue'
 
 // route guarding
 //import firebase from 'firebase'
