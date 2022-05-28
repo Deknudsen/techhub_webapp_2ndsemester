@@ -14,7 +14,7 @@
             <div>
                 <label>Date</label>
                 <input 
-                    type="text"
+                    type="date"
                     v-model="form.date"
                     required
                 />
@@ -23,7 +23,7 @@
             <div>
                 <label>Description</label>
                 <input 
-                    type="text"
+                    type="textarea"
                     v-model="form.description"
                     required
                 />
