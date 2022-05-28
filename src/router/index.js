@@ -80,13 +80,18 @@ const routes = [
   },
   {
     path: '/admin/editevents/:id',
-    name: 'createEvents',
+    name: 'editEvents',
     component: () => import('../views/AdminEditEventView.vue')
   },
   {
     path: '/admin/createtestimonials',
     name: 'createTestimonials',
     component: () => import('../views/AdminCreateTestimonialsView.vue')
+  },
+  {
+    path: '/admin/edittestimonials/:id',
+    name: 'editTestimonials',
+    component: () => import('../views/AdminEditTestimonialView.vue')
   }
 ]
 

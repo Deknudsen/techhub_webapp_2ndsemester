@@ -28,7 +28,6 @@
                     required
                 />
             </div>
-            
             <div>
                 <label>Place</label>
                 <input 
@@ -39,7 +38,7 @@
             </div>
 
             <button type="submit">
-                Create Project
+                Create Event
             </button>
         </form>
     </div>
@@ -56,6 +55,11 @@ import { createEvent } from '@/firebase.js'
 
     export default {
         setup() {
+            const router = useRouter()
+            //const route = useRoute()
+
+            const name = ref("")
+
             const form = reactive({
                 title: '',
                 date: '',
@@ -65,16 +69,14 @@ import { createEvent } from '@/firebase.js'
 
             const onSubmit = async () => {
                 await createEvent({ ...form })
+                router.push('/admin/events')
                 
                 form.title = '',
                 form.date = '',
                 form.description = '',
-                form.place = ''
+                form.place = ''   
             }
-            const router = useRouter()
-            //const route = useRoute()
-
-            const name = ref("")
+            
     
             onBeforeMount(() => {
                 const user = firebase.auth().currentUser // checking for the user info and store it in 'user'

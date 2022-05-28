@@ -1,5 +1,10 @@
 <template>
   <div class="card mt-4">
+    <router-link :to="`/admin/createevents`">
+              <button class="btn btn-primary btn-sm me-2">
+                Create
+              </button>
+    </router-link>
     <table class="table m-0">
       <thead>
         <tr>
@@ -19,7 +24,7 @@
           <td>
             <!-- manually type action buttons -->
             <!-- :to will redirect the user to the edit URL with the id set to the event we are iterating -->
-            <router-link :to="`/editevents/${id}`">
+            <router-link :to="`/admin/editevents/${id}`">
               <button class="btn btn-primary btn-sm me-2">
                 Edit
               </button>

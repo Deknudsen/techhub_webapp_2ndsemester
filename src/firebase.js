@@ -16,6 +16,7 @@ const firebaseApp = firebase.initializeApp(config)
 const db = firebaseApp.firestore()   // 1:  saving into a const variable
 const projectCollection = db.collection('projects') // 1:  grab the collection from firestore
 const eventCollection = db.collection('events')
+const testimonialCollection = db.collection('testimonials')
 
 // 2 : Make our CRUD functions and exporting them for use in other components
 
@@ -105,4 +106,49 @@ export const useLoadEvents = () => {
   // which we will call on the onUnmounted lifecycle(test with onUpdate)
   onUnmounted(close)
   return events
+}
+
+// 2 : Make our CRUD functions and exporting them for use in other components
+
+// create testimonial by using the add prototype from firebase
+// Add a testimonial to the testimonial collection
+export const createTestimonial = testimonial => {
+  return testimonialCollection.add(testimonial)
+}
+
+// accept testimonial id and return the documentation if it exist in the testimonial collection
+export const getTestimonial = async id => {
+  const testimonial = await testimonialCollection.doc(id).get()
+  // ternary : condition ? ifTrue : ifFalse
+  return testimonial.exists ? testimonial.data() : null  // firebase exist method (like include/contains) 
+  // Link: https://firebase.google.com/docs/reference/js/firebase.database.DataSnapshot#exists
+}
+
+// accepts testimonial + id (through the v-for) and updates the correct testimonial based in id
+export const updateTestimonial = (id, testimonial) => {
+  return testimonialCollection.doc(id).update(testimonial)
+}
+
+// accepts id => deletes
+export const deleteTestimonial = id => {
+  return testimonialCollection.doc(id).delete()
+}
+
+// composition hook, that will return a ref to an array of testimonials from the database
+// to do this we add a listener(onSnapshot) on testimonialCollections so 
+// it updates whenever a change is detected
+
+
+export const useLoadTestimonials = () => {
+  const testimonials = ref([])
+  const close = testimonialCollection.onSnapshot(snapshot => {
+    testimonials.value = snapshot.docs.map(doc => ({
+      id: doc.id, 
+      ...doc.data()
+    }))
+  })
+  // Creating this listener, will return us a clean-up function(onUnmounted, 
+  // which we will call on the onUnmounted lifecycle(test with onUpdate)
+  onUnmounted(close)
+  return testimonials
 }

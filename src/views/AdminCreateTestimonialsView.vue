@@ -1,52 +1,105 @@
 <template>
     <div>
-        <form >    
+        <p>Hej</p>
+        <form @submit.prevent="onSubmit">    
             <div>
-                <label>Name</label>
+                <label>Testimony</label>
                 <input 
                     type="text" 
-                    v-model="form.title"
+                    v-model="form.testimony"
                     required 
                 />
             </div>
 
             <div>
-                <label>Task</label>
+                <label>Name</label>
                 <input 
                     type="text"
-                    v-model="form.date"
+                    v-model="form.name"
                     required
                 />
             </div>
 
             <div>
-                <label>Task</label>
+                <label>Occupation</label>
                 <input 
                     type="text"
-                    v-model="form.description"
+                    v-model="form.occupation"
                     required
                 />
             </div>
-            
             <div>
-                <label>Task</label>
+                <label>Website</label>
                 <input 
                     type="text"
-                    v-model="form.place"
+                    v-model="form.website"
                     required
                 />
             </div>
 
-            <button type="submit" class="btn btn-success mt-3">
-                Create Project
+            <button type="submit">
+                Create Testimony
             </button>
         </form>
     </div>
 </template>
 
 <script>
+// Stuff for Login (Auth)
+import firebase from 'firebase'
+import { ref, onBeforeMount } from 'vue'
+import { /*useRoute,*/ useRouter } from 'vue-router'
+
+import { reactive } from 'vue'
+import { createTestimonial } from '@/firebase.js'
+
     export default {
-        
+        setup() {
+            const router = useRouter()
+            //const route = useRoute()
+
+            const name = ref("")
+
+            const form = reactive({
+                testimony: '',
+                name: '',
+                occupation: '',
+                website: ''
+            })
+
+            const onSubmit = async () => {
+                await createTestimonial({ ...form })
+                router.push('/admin/testimonials')
+                
+                form.testimony = '',
+                form.name = '',
+                form.occupation = '',
+                form.website = ''   
+            }
+            
+    
+            onBeforeMount(() => {
+                const user = firebase.auth().currentUser // checking for the user info and store it in 'user'
+                //console.log("testUser: ", user.email)
+                if (user) {
+                    name.value = user.email.split('@')[0] // check for @ and split it there. so stuff before the @ sign.
+                }
+                else {
+                    router.push('/login') 
+                }
+            });
+    
+            const logout = () => {
+                firebase.auth().signOut().then(() => {
+                    // Sign-out successful.
+                }).catch((error) => {
+                console.log("err", error.message)
+                    // An error happened.
+                });
+            }
+
+            return { form, onSubmit, name, logout }
+        }
     }
 </script>
 

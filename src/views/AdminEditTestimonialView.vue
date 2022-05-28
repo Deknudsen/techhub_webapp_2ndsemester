@@ -1,16 +1,16 @@
 <template>
   <div class="card card-body mt-4">
-    <h3>Edit Enent</h3>
+    <h3>Edit Testimonial</h3>
     <form @submit.prevent="update">
       <div class="form-group">
-        <label>Title</label>
-        <input v-model="form.title" class="form-control" required />
+        <label>Testimony</label>
+        <input v-model="form.testimony" class="form-control" required />
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Name</label>
         <input
-          v-model="form.date"
+          v-model="form.name"
           class="form-control"
           type="text"
           required
@@ -18,9 +18,9 @@
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Occupation</label>
         <input
-          v-model="form.description"
+          v-model="form.occupation"
           class="form-control"
           type="text"
           required
@@ -28,9 +28,9 @@
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Website</label>
         <input
-          v-model="form.place"
+          v-model="form.website"
           class="form-control"
           type="text"
           required
@@ -47,7 +47,7 @@
 <script>
 import { reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { getEvent, updateEvent } from '@/firebase.js'
+import { getTestimonial, updateTestimonial } from '@/firebase.js'
 
 export default {
   setup() {
@@ -58,34 +58,34 @@ export default {
     const route = useRoute()
     // Sometimes we need state that depends on other state - in Vue this is 
     // handled with component computed properties.
-    const eventId = computed(() => route.params.id)
+    const testimonialId = computed(() => route.params.id)
 
     const form = reactive({
-      title: '',
-      date: '',
-      description: '',
-      place: ''
+      testimony: '',
+      name: '',
+      occupation: '',
+      website: ''
     })
-    // show information about the current(click) event in the edit form
+    // show information about the current(click) testimonial in the edit form
     // add an onMounted life-hook that will get the user, based on router id 
-    // pull the event from firebase and then assign the values to the fields
+    // pull the testimonial from firebase and then assign the values to the fields
     onMounted(async () => {
-      const event = await getEvent(eventId.value)
-      form.title = event.title
-      form.date = event.date
-      form.description = event.description
-      form.place = event.place
+      const testimonial = await getTestimonial(testimonialId.value)
+      form.testimony = testimonial.testimony
+      form.name = testimonial.name
+      form.occupation = testimonial.occupation
+      form.website = testimonial.website
     })
 
     const update = async () => {
       // once user clicks submit, redirect them to home page or '/'
-      await updateEvent(eventId.value, {...form})
-      router.push('/admin/events')
+      await updateTestimonial(testimonialId.value, {...form})
+      router.push('/admin/testimonials')
       // after create - empty input field
-      form.title = ''
-      form.date = ''
-      form.description = ''
-      form.place = ''
+      form.testimony = ''
+      form.name = ''
+      form.occupation = ''
+      form.website = ''
     }
 
     return { form, update }
