@@ -59,7 +59,7 @@ const routes = [
     component: () => import('../views/ForStartupsView.vue')
   },
   {
-    path: '/event',
+    path: '/event/:id',
     name: 'event',
     component: () => import('../views/SingleEventView.vue')
   },
