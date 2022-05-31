@@ -1,16 +1,13 @@
 <template>
     <header>
-        <NavComponent />
         <img alt="Vue logo" src="../assets/logo.svg">
     </header>
 </template>
 
 <script>
-import NavComponent from '@/components/NavComponent.vue'
 
     export default {
         components: {
-            NavComponent
         }
     }
 </script>
@@ -18,12 +15,18 @@ import NavComponent from '@/components/NavComponent.vue'
 <style lang="scss" scoped>
 header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 120px;
+    box-shadow: 0 3px 5px 0 #333;
+    overflow: visible;
+    width: 100vw;
+    background-color: #fff;
+    position: fixed;
+    z-index: 2;
 
     img {
-        height: 80px;
+        height: 110px;
     }
 }
 </style>

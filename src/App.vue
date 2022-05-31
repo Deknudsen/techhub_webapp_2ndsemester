@@ -1,7 +1,9 @@
 <template>
   <HeaderComponent />
+  <NavComponent />
+  <div class="content">
   <router-view/>
-
+  </div>
   <FooterComponent />
 </template>
 
@@ -13,11 +15,13 @@ import { onBeforeMount} from 'vue' // lifecycle hook
 import { useRouter, useRoute } from 'vue-router' // able to use methods from vue-router (replace etc)
 
 import HeaderComponent from '@/components/HeaderComponent.vue'
+import NavComponent from '@/components/NavComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
 export default {
   components: {
     HeaderComponent,
+    NavComponent,
     FooterComponent
   },
   
@@ -51,17 +55,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.content {
+  padding-top: 120px;
 }
+
 </style>
