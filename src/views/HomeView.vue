@@ -5,19 +5,18 @@
 
     <img alt="Vue logo" src="../assets/logo.png">
 
-    <ProjectListUsers />
   </div>
+  <NewsletterForm />
   </div>
 </template>
 
 <script>
-
-import ProjectListUsers from '@/components/ProjectListUsers.vue'
+import NewsletterForm from '../components/NewsletterForm.vue'
 
 export default {
   name: 'Home',
   components: {
-    ProjectListUsers
+    NewsletterForm
   }
 }
 </script>
