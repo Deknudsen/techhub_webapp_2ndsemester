@@ -30,22 +30,41 @@
   <h1>What we do</h1>
 </div>
 
+
+
 <div class="bubblecontainer">
-  <div class="bubbletitle"> <h3> Inspirational talks </h3>
+  <div class="bubbletitle">  <h3> Inspirational talks </h3> 
+    
     <div class="orangebubble"> <img src="../assets/icons-aboutus/icon-buildtool.png" alt="build tool icon"> <p>  We partner with inspirational leaders and tech entrepreneurs who have either built own venture or invested in startups. They go on stage to hand out wisdom from the biggest success to various failures. This to tell the true story of building tech companies and to inspire others.</p>
     </div>
+    
   </div>
+
+  <div class="orangeseparationlinemobile"></div>
+
   <div class="bubbletitle"> <h3> Investor pitches </h3>
+    
     <div class="orangebubble"> <img src="../assets/icons-aboutus/icon-moneychat.png" alt="money chat icon"> <p> We gather tech startups and smart investors to match the two so we can help fuel the next generation of tech startups in the region. Startups will be chosen from four parameters such as: Team, Product/service, Market potential and business model.</p>
       </div>
+     
     </div> 
+
+<div class="orangeseparationlinemobile"></div>
+
   <div class="bubbletitle"> <h3> Co-founder meetups </h3>
+  
     <div class="orangebubble"> <img src="../assets/icons-aboutus/icon-handshake.png" alt="handshake icon"> <p> It is often hard to find the right co-founder for your startup. We setup a match-making event where commercial founders together with tech development founders can setup the right team from the start.</p>
       </div>
+    
     </div>
+
+<div class="orangeseparationlinemobile"></div>
+
   <div class="bubbletitle"> <h3> Startups pitch for student jobs </h3>
+  
     <div class="orangebubble"> <img src="../assets/icons-aboutus/icon-arrows.png" alt="arrows icon"> <p> A student job at a startup can be super exciting. Therefore we gather curious students from relevant educations and put them in front of startups looking to strengthen their core team.</p>
       </div>
+    
     </div>
 </div>
 
@@ -73,11 +92,10 @@
 </table>
 
 </div>
+
+<NewsletterForm />
 </template>
 
-<script>
-
-</script>
 
 <style lang="scss" scoped>
 
@@ -113,18 +131,6 @@ img {
 
 }
 
-.missiongoalcontainer {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  color: #006699;
-}
-
-
 .bubblecontainer {
   display: flex;
   align-items: center;
@@ -145,6 +151,7 @@ img {
   justify-content: center;
   padding: 40px;
   flex-direction: column;
+  font-family: 'Roboto', 'sans serif';
 
   p {
     color: white;
@@ -160,8 +167,6 @@ img {
     align-items: center;
     margin: 0 auto;
     margin-bottom: 30px;
-    
-    
   }
 
 }
@@ -255,6 +260,14 @@ h1 {
   margin: 0 auto;
 }
 
+.orangeseparationlinemobile {
+  border-bottom: 2px solid #cc6633;
+  width: 700px;
+  padding-top: 70px;
+  margin: 0 auto;
+  display:none;
+}
+
 .partners {
   margin-top: 70px;
   margin-bottom: 70px;
@@ -275,5 +288,171 @@ table tr td img {
     height: 50%;
 }
 
+// MEDIA QUERIES
 
+@media only screen and (max-width: 915px) {
+
+img {
+  height: 150px;
+}
+
+.bannerbox {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.bannertext {
+  font-size: 36px;
+}
+
+.aboutus {
+  font-size: 18px;
+}
+
+.bubblecontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 600px;
+  margin:0 auto;
+}
+
+.bluebubble {
+  height: 400px;
+  width: 400px;
+  background-color: #006699;
+  border-radius: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  flex-direction: column;
+
+  p {
+    color: white;
+    font-size: 16px;
+  }
+
+  img {
+    height:50px;
+  }
+
+}
+
+.toptextcontainer {
+  display:flex; 
+  justify-content: center;
+
+  .toptextbox {
+    width: 400px;
+    padding: 30px;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    color: #006699;
+  }
+
+  p {
+    text-align:left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #006699;
+  }
+}
+
+.blueseparationline {
+  border-bottom: 2px solid #006699;
+  width: 700px;
+  padding-top: 70px;
+  margin: 0 auto;
+}
+
+.whatwedo {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+h1 {
+  font-weight: 600;
+  font-family: 'Roboto Slab', serif;
+  color: #006699;
+  font-size: 26px;
+}
+
+.bubbletitle {
+  
+  h3 {
+    padding-bottom: 0px;
+    font-family: 'Roboto Slab', serif;
+    color: #006699;
+    font-size: 22px;
+   
+  }
+  
+}
+
+  .orangebubble {
+    background-color:transparent;
+    padding:0px;
+    text-align:left;
+    height:250px;
+
+  p {
+    color: #333333;
+    font-size: 16px;
+  }
+
+  img {
+    height:50px;
+    width:auto;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+.orangeseparationline {
+  width: 700px;
+  padding-top: 0px;
+
+}
+
+.orangeseparationlinemobile {
+  display:block;
+  padding-top: 0px;
+  margin-bottom:0px;
+  
+
+}
+
+table {
+  gap: 40px;
+}
+
+table tr td img {
+    width: 50%;
+    height: 50%;
+}
+
+}
 </style>
+
+<script>
+import NewsletterForm from '../components/NewsletterForm.vue'
+
+export default {
+  name: 'About',
+  components: {
+    NewsletterForm
+  }
+}
+</script>
