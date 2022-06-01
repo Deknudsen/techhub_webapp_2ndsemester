@@ -1,6 +1,8 @@
 <template>
     <header>
-        <img alt="Vue logo" src="../assets/logo.svg">
+        <router-link to="/">
+            <img alt="Vue logo" src="../assets/logo.svg">
+        </router-link>
     </header>
 </template>
 

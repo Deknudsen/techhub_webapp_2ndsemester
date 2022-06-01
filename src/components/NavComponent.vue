@@ -173,26 +173,26 @@ nav {
 }
 
 @media screen and (max-width: 915px) {
-    nav {
-      .burgerMenuCircle {
+  nav {
+    .burgerMenuCircle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      margin-left: 10px;
+      margin-top: 60px;
+
+      &:hover {
         width: 100px;
         height: 100px;
-        border-radius: 50px;
         margin-left: 10px;
         margin-top: 60px;
-
-        &:hover {
-          width: 100px;
-          height: 100px;
-          margin-left: 10px;
-          margin-top: 60px;
-          margin-bottom: 0px;
-        }
-      }
-
-      .hiddenMenu {
-        margin-top: 10px;
+        margin-bottom: 0px;
       }
     }
+
+    .hiddenMenu {
+      margin-top: 10px;
+    }
+  }
 }
 </style>

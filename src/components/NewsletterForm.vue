@@ -6,11 +6,11 @@
             <p>By signing up to our community and newsletter you agree to receive updates on TECHHUB SYD events and news about relevant tech in the region.</p>
         </div>
         <form>
-            <div>
+            <div class="newsBox">
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName">
             </div>
-            <div>
+            <div class="newsBox">
                 <label for="email">Email Adress</label>
                 <input type="text" name="email">
             </div>
@@ -87,6 +87,72 @@
                 border-color: #cc6633;
                 border-radius: 3px;
                 border-style: solid;
+                font-family: 'Roboto', sans-serif;
+                font-size: 24px;
+                padding-left: 13px;
+
+                &:focus {
+                    outline: none;
+                    border-color: #cc6633;
+                }
+            }
+        }
+
+        button {
+            width: 250px;
+            height: 57px;
+            background-color: #cc6633;
+            color: #fff;
+            border-color: #cc6633;
+            border-style: solid;
+            border-radius: 3px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            
+            &:hover {
+                color: #cc6633;
+                background-color: #fff;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .newsletter {
+        hr {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 915px) {
+    .newsletter {
+        display: flex;
+        .newsText {
+            width: 80%;
+            align-self: center;
+            h2 {
+                font-size: 24px;
+            }            
+        }
+        .newsBox {
+            width: 80%;
+
+            label {
+                font-size: 14px;
+            }
+
+            input {
+                max-width: 75%;
+                height: 30px;
+            }
+        }
+        form {
+            button {
+                font-size: 14px;
+                width: 110px;
+                height: 35px;
             }
         }
     }
