@@ -1,9 +1,9 @@
 <template>
   <nav>
-    <label for="checkboxDropdown" class="burgerMenuCircle">
+    <label for="checkboxDropdown" class="burgerMenuCircle"  @click="closeNav()">
      <i class="icon-reorder icon-3x"></i>
    </label>
-    <input type="checkbox" id="checkboxDropdown" v-model="checkedBox">
+    <input type="checkbox" id="checkboxDropdown" :checked="checkedbox">
    <div class="hiddenMenu" for="burgerMenuCircle" >
      <div>
        <router-link to="/">Home</router-link>
@@ -20,11 +20,15 @@
      <div>
        <router-link to="/contact">Contact</router-link>
      </div>
-     <!-- <div v-if="isLoggedIn.value = true">
-       <router-link to="/admin" >Admin</router-link>
-     </div> -->
-   </div>
+      <div>
+     <router-link to="/login"> login </router-link>
+      </div>
+        <div v-if="userLocal">
+       <router-link to="/admin">Admin</router-link>
+     </div>
 
+    <div @click="closeNav()">checkcheck </div>     
+   </div>
 
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/events">Events</router-link> |
@@ -45,6 +49,13 @@
 
     export default {
         setup() {        
+            let userLocal = localStorage.loggedIn
+            let checkedbox = false
+
+            let closeNav = () => {
+              checkedbox = !checkedbox;
+              console.log("test", checkedbox)
+            }
             //const route = useRoute()
 
             // const name = ref("")
@@ -66,7 +77,8 @@
 
           return{ 
             // isLoggedIn
-
+              userLocal,
+              closeNav
             }
         }
     }
