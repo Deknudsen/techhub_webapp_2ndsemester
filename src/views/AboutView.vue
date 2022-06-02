@@ -288,6 +288,14 @@ table tr td img {
     height: 50%;
 }
 
+td {
+  transition: transform .4s;
+}
+
+td:hover {
+  transform: scale(1.05);
+}
+
 // MEDIA QUERIES
 
 @media only screen and (max-width: 915px) {

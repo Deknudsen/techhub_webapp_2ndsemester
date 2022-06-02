@@ -31,7 +31,7 @@
     </div>
 
 <div class="followtext"> Follow TechHub Syd's LinkedIn page for updates </div>
-<button class="button"> Follow </button>
+<a href="https://www.linkedin.com/company/techhub-syd/"><button class="button"> Follow </button></a>
 
     </div>
 
@@ -53,7 +53,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+}
+
+.box {
+    width:350px;
+    height: 470px;
 }
 
 .title {
@@ -93,6 +97,7 @@
     font-weight: 700;
     font-size: 24px;  
     margin-top: 70px;
+    
 }
 
 .button {
@@ -112,6 +117,37 @@
         background-color: #fff;
         font-weight: 700;
     }
+}
+
+@media only screen and (max-width: 915px) {
+
+.teamcontainer {
+    flex-direction: column;
+    gap: 50px;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.followtext {
+    font-size: 20px;
+    width: 250px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.button {
+    font-size: 14px;
+    width: 110px;
+    height: 35px;
+}
+
 }
 
 </style>

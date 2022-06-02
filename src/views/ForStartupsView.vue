@@ -29,16 +29,24 @@
                 <input type="text" name="email">
             </div>
 
-<form class="inputfield">
-  <label for="saas">SaaS</label>
-  <input type="checkbox" id="saas" name="saas">
+<div class="inputfield">
+  <div>
+    <input type="radio" id="saas" value="saas" name="firmchoice">
+    <label for="saas">SaaS</label>
+  </div>
+  <div>
+  <input type="radio" id="mobileapp" value="mobileapp" name="firmchoice">
   <label for="mobileapp">Mobile App</label>
-  <input type="checkbox" id="mobileapp" name="mobileapp">
+  </div>
+  <div>
+  <input type="radio" id="aiarvr" value="aiarvr" name="firmchoice">
   <label for="aiarvr">AI/AR/VR</label>
-  <input type="checkbox" id="aiarvr" name="aiarvr">
+  </div>
+  <div>
+  <input type="radio" id="other" value="other" name="firmchoice">
   <label for="other">Other</label>
-  <input type="checkbox" id="other" name="other">
-</form>
+  </div>
+</div>
             
             <button type="submit">Sign up now</button>
         </form>
@@ -83,18 +91,21 @@ img {
   padding: 20px;
   font-family: 'Roboto Slab', serif;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 34px;
   color: #006699;
 }
 
 .container {
     display: flex;
+    justify-content: center;
     gap:50px;
+    margin-top:40px;
+
 }
 
 .leftbox {
     height: 300px;
-    width: 450px;
+    width: 400px;
     text-align: left;
     display:flex;
     flex-direction: column;
@@ -115,15 +126,16 @@ img {
 
 .verticalline {
     border-left: 2px solid #006699;
-    height: 300px;
+    height: 400px;
     margin-bottom: 50px;
-
 }
 
 .rightbox {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    width: 400px;
+    margin-top:-20px;
 }
 
 .righttopbox {
@@ -143,6 +155,29 @@ img {
     font-weight: 600;
 }
 
+.inputfield {
+    display:flex;
+    flex-direction:column;
+
+    div {
+        width: 400px;
+        display: flex;
+        justify-content: flex-start;
+        align-content: flex-end;
+        color: #006699;
+
+        input {
+            margin: 5px;
+        }
+
+        label {
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+
+
+}
+
 .signupboxContainer {
     display:flex;
     flex-direction: column;
@@ -154,22 +189,24 @@ form {
         justify-content: center;
         align-items: center;
 
-        div {
+        .signupBox {
             margin-bottom: 15px;
-            width: 650px;
+            width: 400px;
             display: flex;
             justify-content: space-between;
 
             label {
                 font-family: 'Roboto', sans-serif;
-                font-size: 24px;
+                font-size:16px;
                 color: #006699;
+                align-items: center;
+                display: flex;
             }
 
             input {
-                width: 480px;
-                height: 50px;
-                border-color: #cc6633;
+                width: 250px;
+                height: 41px;
+                border-color: #006699;
                 border-radius: 3px;
                 border-style: solid;
                 font-family: 'Roboto', sans-serif;
@@ -202,6 +239,115 @@ form {
             }
         }
     }
+
+@media only screen and (max-width: 915px) {
+
+img {
+  height: 150px;
+}
+
+.bannerbox {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.bannertext {
+  font-size: 36px;
+}
+
+.forstartupstext {
+    width: 470px;
+    display: flex;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0px;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.leftbox {
+    display:flex;
+    margin: 0 auto;
+    width: 470px;
+    height: 260px;
+
+}
+
+.lefttopbox {
+    font-size: 20px;
+    width: 470px;
+    margin-bottom: 40px;
+}
+
+.verticalline {
+    border-bottom: 2px solid #006699;
+    width: 470px;
+    border-left: none;
+    height: 2px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.rightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 470px;
+    margin: 0 auto;
+}
+
+.signupBox {
+    width: 80%; 
+
+    label {
+        font-size: 14px;
+        align-items: center;
+        display: flex;
+    }
+
+        input {
+            max-width: 75%;
+            height: 30px;
+            
+     }
+}
+        form {
+            button {
+                font-size: 14px;
+                width: 110px;
+                height: 35px;
+            }
+        }
+
+.inputfield {
+
+    div {
+        width: 150px;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 40px;
+        padding:5px;
+        
+
+        input {
+            margin: 5px;
+            
+        }
+
+        label {
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+
+
+}
+
+}
+
+
 
 </style>
 
