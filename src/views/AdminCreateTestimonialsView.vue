@@ -29,11 +29,18 @@
                 />
             </div>
             <div>
+                <label>Firm Name</label>
+                <input 
+                    type="text"
+                    v-model="form.firm"
+                    required
+                />
+            </div>
+            <div>
                 <label>Website</label>
                 <input 
                     type="text"
                     v-model="form.website"
-                    required
                 />
             </div>
 
@@ -64,6 +71,7 @@ import { createTestimonial } from '@/firebase.js'
                 testimony: '',
                 name: '',
                 occupation: '',
+                firm: '',
                 website: ''
             })
 
@@ -74,6 +82,7 @@ import { createTestimonial } from '@/firebase.js'
                 form.testimony = '',
                 form.name = '',
                 form.occupation = '',
+                form.firm = '',
                 form.website = ''   
             }
             

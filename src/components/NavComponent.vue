@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <label for="checkboxDropdown" class="burgerMenuCircle"  @click="closeNav()">
+    <label for="checkboxDropdown" class="burgerMenuCircle" > <!-- @click="closeNav() -->
      <i class="icon-reorder icon-3x"></i>
    </label>
     <input type="checkbox" id="checkboxDropdown" :checked="checkedbox">
@@ -27,8 +27,10 @@
        <router-link to="/admin">Admin</router-link>
      </div>
 
-    <div @click="closeNav()">checkcheck </div>     
+ 
    </div>
+
+   
 
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/events">Events</router-link> |
@@ -39,23 +41,29 @@
     <router-link to="/admin/events">Event List</router-link> |
     <router-link to="/admin/testimonials">testimomy List</router-link> -->
   </nav>
+ <!--  <div id="btn-nav" @click="testFunc()">box</div> -->
+ 
 </template>
 
 
 <script>
 //Stuff for Login (Auth)
 // import firebase from 'firebase'
-// import { ref, onBeforeMount } from 'vue'
+ //import { ref } from 'vue'
 
     export default {
         setup() {        
             let userLocal = localStorage.loggedIn
-            let checkedbox = false
+      
+        
+         // const name = ref('Vue.js')
 
+        
+/* 
             let closeNav = () => {
-              checkedbox = !checkedbox;
-              console.log("test", checkedbox)
-            }
+              checkedbox.value = !checkedbox.value;
+              console.log("test", checkedbox.value)
+            } */
             //const route = useRoute()
 
             // const name = ref("")
@@ -78,14 +86,35 @@
           return{ 
             // isLoggedIn
               userLocal,
-              closeNav
+            //  closeNav,
+      
+           //   checkedbox
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-
+/* 
+.js-is-hidden {
+  display: none;
+}
+#btn-nav-box {
+  margin-top: 100px;
+  margin-left: 500px;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  position: absolute;
+} */
+#btn-nav {
+  margin-top: 200px;
+  margin-left: 300px;
+  width: 40px;
+  height: 40px;
+  background-color: #cc6633;
+  position: absolute;
+}
 nav {
   padding-top:0px;
   margin-top: -50px;

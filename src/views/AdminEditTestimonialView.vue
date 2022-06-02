@@ -28,12 +28,21 @@
       </div>
 
       <div class="form-group mt-3">
+        <label>Firm Name</label>
+        <input
+          v-model="form.firm"
+          class="form-control"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="form-group mt-3">
         <label>Website</label>
         <input
           v-model="form.website"
           class="form-control"
           type="text"
-          required
         />
       </div>
 
@@ -64,6 +73,7 @@ export default {
       testimony: '',
       name: '',
       occupation: '',
+      firm: '',
       website: ''
     })
     // show information about the current(click) testimonial in the edit form
@@ -74,6 +84,7 @@ export default {
       form.testimony = testimonial.testimony
       form.name = testimonial.name
       form.occupation = testimonial.occupation
+      form.firm = testimonial.firm
       form.website = testimonial.website
     })
 
@@ -85,6 +96,7 @@ export default {
       form.testimony = ''
       form.name = ''
       form.occupation = ''
+      form.firm = ''
       form.website = ''
     }
 

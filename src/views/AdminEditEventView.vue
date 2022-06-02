@@ -8,17 +8,17 @@
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Date</label>
         <input
-          v-model="form.date"
+          v-model="form.eventDate"
           class="form-control"
-          type="text"
+          type="date"
           required
         />
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Description</label>
         <input
           v-model="form.description"
           class="form-control"
@@ -28,7 +28,7 @@
       </div>
 
       <div class="form-group mt-3">
-        <label>Task</label>
+        <label>Place</label>
         <input
           v-model="form.place"
           class="form-control"
@@ -62,7 +62,7 @@ export default {
 
     const form = reactive({
       title: '',
-      date: '',
+      eventDate: '',
       description: '',
       place: ''
     })
@@ -72,7 +72,7 @@ export default {
     onMounted(async () => {
       const event = await getEvent(eventId.value)
       form.title = event.title
-      form.date = event.date
+      form.eventDate = event.eventDate
       form.description = event.description
       form.place = event.place
     })
@@ -83,7 +83,7 @@ export default {
       router.push('/admin/events')
       // after create - empty input field
       form.title = ''
-      form.date = ''
+      form.eventDate = ''
       form.description = ''
       form.place = ''
     }

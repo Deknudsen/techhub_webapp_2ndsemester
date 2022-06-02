@@ -15,7 +15,7 @@
                 <label>Date</label>
                 <input 
                     type="date"
-                    v-model="form.date"
+                    v-model="form.eventDate"
                     required
                 />
             </div>
@@ -62,7 +62,7 @@ import { createEvent } from '@/firebase.js'
 
             const form = reactive({
                 title: '',
-                date: '',
+                eventDate: '',
                 description: '',
                 place: ''
             })
@@ -72,7 +72,7 @@ import { createEvent } from '@/firebase.js'
                 router.push('/admin/events')
                 
                 form.title = '',
-                form.date = '',
+                form.eventDate = '',
                 form.description = '',
                 form.place = ''   
             }

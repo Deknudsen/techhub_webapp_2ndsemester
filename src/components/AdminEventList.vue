@@ -16,9 +16,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="{ id, title, date, description, place } in events" :key="id">
+        <tr v-for="{ id, title, eventDate, description, place } in events" :key="id">
           <td>{{ title }}</td>
-          <td>{{ date }}</td>
+          <td>{{ eventDate }}</td>
           <td>{{ description }}</td>
           <td>{{ place }}</td>
           <td>
