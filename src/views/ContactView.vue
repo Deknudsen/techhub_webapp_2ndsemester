@@ -7,7 +7,7 @@
 
         <div class="box">
             <div class="title"> Founder </div>
-            <div class="image"> <img src="../assets/team/founder.png" alt="founder image"> </div>
+            <div class="image"> <a href="https://www.linkedin.com/in/kasperthom/">  <img src="../assets/team/founder.png" alt="founder image"> </a></div>
             <div class="name"> Kasper Bank Thomsen </div>
             <div class="occupation"> Entrepreneur & Investor within technology </div>
             <div class="location"> Esbjerg, Syddanmark, Denmark </div>
@@ -15,7 +15,7 @@
 
         <div class="box">
             <div class="title"> Partner </div>
-            <div class="image"> <img src="../assets/team/Trine.png" alt="partner image"> </div>
+            <div class="image"> <a href="https://www.linkedin.com/in/trinefalbe/"> <img src="../assets/team/Trine.png" alt="partner image"> </a></div>
             <div class="name"> Trine Falbe </div>
             <div class="occupation"> Ethical design and UX expert </div>
             <div class="location"> Esbjerg, Syddanmark, Denmark </div>
@@ -23,7 +23,7 @@
 
         <div class="box">
             <div class="title"> Partner </div>
-            <div class="image"> <img src="../assets/team/Ronni.png" alt="partner image"> </div>
+            <div class="image"> <a href="https://www.linkedin.com/in/ronni-baslund/"> <img src="../assets/team/Ronni.png" alt="partner image"> </a></div>
             <div class="name"> Ronni H. Baslund </div>
             <div class="occupation"> Interim CEO / CTO @ Visma | Creditro A/S </div>
             <div class="location"> Esbjerg, Syddanmark, Denmark </div>
@@ -56,13 +56,20 @@
     gap: 50px;
 }
 
-
 .title {
     font-family: 'Roboto Slab', 'serif';
     color: #cc6633;
     font-weight: 600;
     font-size: 36px;
     padding-bottom: 20px;
+}
+
+.image {
+    transition: transform .4s;
+}
+
+.image:hover {
+  transform: scale(1.05);
 }
 
 .name {
