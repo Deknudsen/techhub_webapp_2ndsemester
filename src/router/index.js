@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/HomeView.vue'
 
-// for editing (CRUD)
-import Edit from '../views/Edit.vue'
 
 // For login stuff
 import Login from '../views/LoginView.vue'
@@ -19,11 +17,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/edit/:id',  // id parameter to know which project we clicked
-    name: 'Edit',
-    component: Edit
-  },
-  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -36,6 +29,9 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
+    // meta: {
+    //   required:true
+    // },
     component: () => import('../views/AdminView.vue')
   },
   {

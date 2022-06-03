@@ -38,14 +38,19 @@
                 </div>
             </div>
         </section>
+        <NewsletterForm />
     </div>
 </template>
 
 <script>
 import { useUpcomingEvents } from '@/firebase.js'
 import { usePriorEvents } from '@/firebase.js'
+import NewsletterForm from '@/components/Newsletterchimp.vue'
 
     export default {
+        components: {
+            NewsletterForm
+        },
         setup() {
             const comingEvents = useUpcomingEvents()
             const priorEvents = usePriorEvents()

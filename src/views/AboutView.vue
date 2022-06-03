@@ -91,9 +91,9 @@
   </tr>
 </table>
 
+<NewsletterForm />
 </div>
 
-<NewsletterForm />
 </template>
 
 
@@ -110,7 +110,7 @@ img {
   text-align: center;
   position: relative;
   margin-bottom: 40px;
-}
+} 
 
 .bannertext {
   position: absolute;
@@ -455,7 +455,7 @@ table tr td img {
 </style>
 
 <script>
-import NewsletterForm from '../components/NewsletterForm.vue'
+import NewsletterForm from '../components/Newsletterchimp.vue'
 
 export default {
   name: 'About',

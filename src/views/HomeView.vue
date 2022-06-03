@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div>
+        <video src="../assets/infographics.mp4" height="720" width="1280" autoplay loop ></video>
+
+
+      </div>
     <div class="events">
       <h2>Upcoming events</h2>
       <div class="singleEvent" v-for=" events in e " :key="events.id">
@@ -42,7 +47,7 @@
 </template>
 
 <script>
-import NewsletterForm from '../components/NewsletterForm.vue'
+import NewsletterForm from '../components/Newsletterchimp.vue'
 import { useLoadTestimonials } from '@/firebase.js'
 import { useSortEvents } from '@/firebase.js'
 

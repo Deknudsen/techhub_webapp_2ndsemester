@@ -20,15 +20,13 @@
      <div>
        <router-link to="/contact">Contact</router-link>
      </div>
-      <div>
+      <div v-if="!userLocal">
      <router-link to="/login"> login </router-link>
       </div>
         <div v-if="userLocal">
        <router-link to="/admin">Admin</router-link>
      </div>
-
- 
-   </div>
+    </div>
 
    
 

@@ -153,7 +153,7 @@
 </style>
 
 <script>
-import NewsletterForm from '../components/NewsletterForm.vue'
+import NewsletterForm from '@/components/Newsletterchimp.vue'
 
 export default {
   name: 'Contact',
