@@ -132,6 +132,7 @@ h2 {
     div {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         p {
             margin:0;
