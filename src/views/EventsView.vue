@@ -229,6 +229,7 @@ h2 {
         
         div {
             flex-direction: column;
+            align-items: flex-start;
 
             div {
                 display: flex;
