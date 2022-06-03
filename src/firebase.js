@@ -128,6 +128,46 @@ export const useSortEvents = () => {
   return events
 }
 
+export const useUpcomingEvents = () => {
+  const events = ref([])
+  let today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  const yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
+  
+  const upcoming = eventCollection.orderBy("eventDate").startAt(today).limit(5).onSnapshot(snapshot => {
+    events.value = snapshot.docs.map(doc => ({
+      id: doc.id, 
+      ...doc.data()
+    }))
+  })
+  // Creating this listener, will return us a clean-up function(onUnmounted, 
+  // which we will call on the onUnmounted lifecycle(test with onUpdate)
+  onUnmounted(upcoming)
+  return events
+}
+
+export const usePriorEvents = () => {
+  const events = ref([])
+  let today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  const yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
+  
+  const prior = eventCollection.orderBy("eventDate", "desc").startAt(today).limit(5).onSnapshot(snapshot => {
+    events.value = snapshot.docs.map(doc => ({
+      id: doc.id, 
+      ...doc.data()
+    }))
+  })
+  // Creating this listener, will return us a clean-up function(onUnmounted, 
+  // which we will call on the onUnmounted lifecycle(test with onUpdate)
+  onUnmounted(prior)
+  return events
+}
+
 // 2 : Make our CRUD functions and exporting them for use in other components
 
 // create testimonial by using the add prototype from firebase
