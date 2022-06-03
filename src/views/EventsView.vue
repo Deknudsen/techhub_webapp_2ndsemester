@@ -2,14 +2,8 @@
     <div>
         <section>
         <div class="bannerbox"><img src="../assets/events.png" alt="events"> 
-        <div class="bannertext">Events</div>
+        <div class="bannertext">Upcoming Events</div>
         </div>
-
-        <div class="banner">
-            <h2>
-                Upcoming Event
-            </h2>
-         </div>
 
             <div class="events">
                 <div class="singleEvent" v-for="events in comingEvents" :key="events.id">
@@ -27,6 +21,9 @@
         <section>
             <div class="banner">
                 <h2>Prior Event</h2>
+            </div>
+            <div class="subheader">
+                Are you interested in what prior events TECHHUB facilitated? See the list down below
             </div>
             <div class="events">
                 <div class="singleEvent prior" v-for="events in priorEvents" :key="events.id">
@@ -196,6 +193,11 @@ h2 {
                 background-color: #333;
             }
         }
+
+        .subheader {
+            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+        }
   }
 
 @media only screen and (max-width: 915px) {
@@ -215,8 +217,7 @@ img {
 }
 
 h2 {
-    font-size: 36px;
-    margin-top: 70px;
+    font-size: 24px;
 }
 
 .events {
@@ -224,12 +225,31 @@ h2 {
     .singleEvent{
         width: 600px;
         display: flex;
+        
+        div {
+            flex-direction: column;
 
+            div {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: row;
+                p {
+                    width: 175px;
+                }
+            }
+        }
     }
 }
 
 .redirectBtn {
     width: 200px;
+    font-size: 16px;
+}
+
+.subheader {
+    width: 240px;
+    display: flex;
+    margin: 0 auto;
     font-size: 16px;
 }
 
