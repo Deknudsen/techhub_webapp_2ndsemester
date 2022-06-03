@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div v-for="events in event" :key="events.id">
-            <h2> {{events.title}} </h2>
+        <div v-for="{ id, title} in eventData" :key="id">
+            <h2> {{title}} </h2>
 
         </div>
     </div>
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, reactive, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getEvent } from '@/firebase.js'
     export default {
@@ -16,12 +16,26 @@ import { getEvent } from '@/firebase.js'
             const route = useRoute()
             const eventId = computed(() => route.params.id)
 
-            const event = getEvent(eventId)
 
+            //const event = getEvent(eventId.value)
+            const eventData = reactive({
+                title: '',
+                eventDate: '',
+                description: '',
+                place: ''
+            })
 
-            console.log(event)
+            onMounted(async () => {
+                const event = await getEvent(eventId.value)
+                eventData.title = event.title
+                eventData.eventDate = event.eventDate
+                eventData.description = event.description
+                eventData.place = event.place
+            })
+
+            console.log(eventData)
             
-            return { event }
+            return { eventData }
         }
     }
 </script>

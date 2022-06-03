@@ -13,10 +13,13 @@
 
             <div class="events">
                 <div class="singleEvent" v-for="events in comingEvents" :key="events.id">
-                    <p> {{events.title}} </p>
-              <div> <p> {{events.eventDate}} </p>
-                    <p> {{events.place}} </p>  </div>
-            
+                    <div>
+                        <p> {{events.title}} </p>
+                        <div> 
+                            <p> {{events.eventDate}} </p>
+                            <p> {{events.place}} </p>
+                        </div>
+                    </div>
                     <router-link class="redirectBtn" :to="{ name: 'event', params: {id : events.id}}" >Read More</router-link>
                 </div>
             </div>
@@ -27,10 +30,13 @@
             </div>
             <div class="events">
                 <div class="singleEvent prior" v-for="events in priorEvents" :key="events.id">
-                    <p> {{events.title}} </p>
-              <div> <p> {{events.eventDate}} </p>
-                    <p> {{events.place}} </p> </div>
-            
+                    <div>
+                        <p> {{events.title}} </p>
+                        <div> 
+                            <p> {{events.eventDate}} </p>
+                            <p> {{events.place}} </p>
+                        </div>
+                    </div>
                     <router-link class="redirectBtn" :to="{ name: 'event', params: {id : events.id}}" >Read More</router-link>
                 </div>
             </div>
@@ -120,29 +126,34 @@ h2 {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      
+      width: 1120px;
       border-bottom: 1px solid #006699;
       height: 112px;
       padding:0 40px;
       font-family: 'Roboto', sans-serif;
+    
+    div {
+        display: flex;
+        justify-content: space-between;
 
-      p {
-        margin:0;
-        text-align: left;
-        color: #006699;
-        font-size: 24px;
-        width: 250px;
+        p {
+            margin:0;
+            text-align: left;
+            color: #006699;
+            font-size: 24px;
+            width: 250px;
 
         
 
-        &::first-letter {
-          text-transform: uppercase;
+            &::first-letter {
+                text-transform: uppercase;
+            }
         }
-      }
 
-      div {
+        div {
             display: flex;
             width: 400px;
+            
                 p {
                 width: 150px;
                 font-size: 16px;
@@ -150,6 +161,9 @@ h2 {
             }
         }
 
+    }
+
+      
         .redirectBtn {
     
             padding: 5px 10px 7px;
