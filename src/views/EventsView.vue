@@ -1,14 +1,21 @@
 <template>
     <div>
         <section>
-            <div class="banner">
-                <h2>Upcoming Events</h2>
-            </div>
+        <div class="bannerbox"><img src="../assets/events.png" alt="events"> 
+        <div class="bannertext">Events</div>
+        </div>
+
+        <div class="banner">
+            <h2>
+                Upcoming Event
+            </h2>
+         </div>
+
             <div class="events">
                 <div class="singleEvent" v-for="events in comingEvents" :key="events.id">
                     <p> {{events.title}} </p>
-                    <p> {{events.eventDate}} </p>
-                    <p> {{events.place}} </p>
+              <div> <p> {{events.eventDate}} </p>
+                    <p> {{events.place}} </p>  </div>
             
                     <router-link class="redirectBtn" :to="{ name: 'event', params: {id : events.id}}" >Read More</router-link>
                 </div>
@@ -21,8 +28,8 @@
             <div class="events">
                 <div class="singleEvent prior" v-for="events in priorEvents" :key="events.id">
                     <p> {{events.title}} </p>
-                    <p> {{events.eventDate}} </p>
-                    <p> {{events.place}} </p>
+              <div> <p> {{events.eventDate}} </p>
+                    <p> {{events.place}} </p> </div>
             
                     <router-link class="redirectBtn" :to="{ name: 'event', params: {id : events.id}}" >Read More</router-link>
                 </div>
@@ -50,6 +57,31 @@ import { usePriorEvents } from '@/firebase.js'
 </script>
 
 <style lang="scss" scoped>
+
+img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 35%;
+}
+
+.bannerbox {
+  text-align: center;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.bannertext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+}
+
 
 h2 {
     font-family: 'Roboto Slab', serif;
@@ -88,7 +120,7 @@ h2 {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 1120px;
+      
       border-bottom: 1px solid #006699;
       height: 112px;
       padding:0 40px;
@@ -96,19 +128,27 @@ h2 {
 
       p {
         margin:0;
-        font-size: 16px;
         text-align: left;
-        width: 150px;
+        color: #006699;
+        font-size: 24px;
+        width: 250px;
 
-        &:first-of-type {
-          color: #006699;
-          font-size: 24px;
-          width: 250px;
-        }
+        
+
         &::first-letter {
           text-transform: uppercase;
         }
       }
+
+      div {
+            display: flex;
+            width: 400px;
+                p {
+                width: 150px;
+                font-size: 16px;
+                color: #333333;
+            }
+        }
 
         .redirectBtn {
     
@@ -143,4 +183,42 @@ h2 {
             }
         }
   }
+
+@media only screen and (max-width: 915px) {
+
+img {
+  height: 150px;
+}
+
+.bannerbox {
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.bannertext {
+  font-size: 36px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-top: 70px;
+}
+
+.events {
+
+    .singleEvent{
+        width: 600px;
+        display: flex;
+
+    }
+}
+
+.redirectBtn {
+    width: 200px;
+    font-size: 16px;
+}
+
+}
+
 </style>

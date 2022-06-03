@@ -210,7 +210,8 @@ form {
                 border-radius: 3px;
                 border-style: solid;
                 font-family: 'Roboto', sans-serif;
-                font-size: 24px;
+                font-size: 16px;
+                color: #cc6633;
                 padding-left: 13px;
 
                 &:focus {
